@@ -5,7 +5,7 @@ pipeline {
 	   
         stage ('Checkout') {
           steps {
-            git 'https://github.com/dilipsun/addressbook.git'
+            git 'https://github.com/dilip-2008/addressbook.git'
           }
         }
         stage('Build') {
@@ -26,7 +26,7 @@ pipeline {
     }
         stage('Docker Push') {
       steps {
-        withCredentials([usernamePassword(credentialsId: '460e1e49-aabb-4481-bc32-9eb8279e2cbc', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        withCredentials([usernamePassword(credentialsId: '6697148e-3070-441b-9562-0d45a33ca3a9', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
           sh 'docker push dilipsun/addressbook$(git rev-parse HEAD):latest'
         }
