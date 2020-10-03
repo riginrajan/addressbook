@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 hooks:
-  ApplicationStart:
-    - location: scripts/startup.sh
+  BeforeInstall:
+    - location: scripts/startup.bash
       timeout: 20
       runas: root
